@@ -1,0 +1,59 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package ds.tutorial.communication.grpc.generated;
+
+message UpdateQuantityRequest {
+    string itemId = 1;
+    double value = 2;
+    bool isSentByPrimary = 3;
+}
+
+message UpdateQuantityResponse {
+    bool status = 1;
+}
+
+message AddToShoppingCardRequest {
+    string cardId = 1;
+    double value = 2;
+    bool isSentByPrimary = 3;
+}
+
+message AddToShoppingCardResponse {
+    bool status = 1;
+}
+
+message CheckoutShoppingCardRequest {
+    string cardId = 1;
+    double value = 2;
+    bool isSentByPrimary = 3;
+}
+
+message CheckoutShoppingCardResponse {
+    bool status = 1;
+}
+
+message CheckAvailableQuantityRequest {
+    string itemId = 1;
+    double value = 2;
+    bool isSentByPrimary = 3;
+}
+
+message CheckAvailableQuantityResponse {
+    double availableQuantity = 1;
+}
+
+service UpdateQuantityService {
+    rpc updateQuantity(UpdateQuantityRequest) returns (UpdateQuantityResponse);
+}
+
+service addToShoppingCardService {
+    rpc addToShoppingCard(AddToShoppingCardRequest) returns (AddToShoppingCardResponse);
+}
+
+service CheckAvailableQuantityService {
+    rpc checkAvailableQuantity(CheckAvailableQuantityRequest) returns (CheckAvailableQuantityResponse);
+}
+
+service CheckoutShoppingCardService {
+    rpc CheckoutShoppingCard(CheckoutShoppingCardRequest) returns (CheckoutShoppingCardResponse);
+}
